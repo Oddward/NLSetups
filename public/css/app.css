@@ -1,0 +1,110 @@
+
+/* BASE */
+a {
+	text-decoration: none;
+	color: unset;
+	position: relative;
+}
+a:visited {
+	color: inherit;
+	text-decoration: inherit;
+}
+button {
+	border: none;
+	background: none;
+}
+button:focused {
+	outline: none;
+}
+form {
+	padding: 2rem 1rem;
+}
+form h1 {
+	color: linear-gradient(45deg, rgb(0, 238, 255), rgb(162, 0, 255));
+}
+span { position: relative; }
+
+.bg-dark{
+	background-color: #222;
+}
+
+.split {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+/* SIZING */
+.w-full {
+	width: 100%;
+}
+.w-big {
+	width: 70%;
+}
+.h-full {
+	height: 100%;
+}
+
+/* SPACING */
+.label-isolated {
+	padding-left: 3rem;
+	padding-right: 3rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+.region-isolated {
+	padding-left: 4rem;
+	padding-right: 4rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;;
+}
+
+/* DECORATION */
+header ul a::after {
+	transition: width 200ms ease;
+	content: '';
+	width: 0;
+	height: 2px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border-radius: 2px;
+	background: linear-gradient(0deg, rgb(0, 255, 191), rgb(0, 119, 255));
+}
+header ul a:hover::after {
+	width: 100%;
+}
+.shadow {
+	box-shadow: 1px 0px 10px rgba(0, 0, 0, .3);
+}
+.button-underline {
+	position: relative;
+}
+/* .button-underline::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	height: 2px;
+	width: 0;
+	background-color: linear-gradient('left-to-right', rgb(0, 255, 191), rgb(0, 119, 255));
+	transition: all 300ms ease-in-out;
+}
+.button-underline:hover::after {
+	width: 100%;
+} */
+
+/* COMPONENTS */
+.searchbox {
+	border: 1px solid #555;
+	border-radius: .5rem;
+	padding-left: .5rem;
+	padding-right: .5rem;
+	padding-top: 0;
+	padding-bottom: 0;
+	max-height: 2.5rem;
+}
+
+/* EXTRA */
+.username {
+	font-style: italic;
+}
