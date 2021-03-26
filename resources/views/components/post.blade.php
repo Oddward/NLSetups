@@ -1,4 +1,4 @@
-<div style="margin: 2rem;">
+<div style="margin: 2rem; display: inline-block;">
     <img style="
             width: 12rem;
             height: auto;

@@ -51,9 +51,11 @@
 
                 <main style="
                         padding: 2rem;
-                        display: flex;
-                        justify-content: center;">
+                        display: flexbox;
+                        justify-content: center;
+                        width: 100%;">
                     @yield('content')
+                    {{-- <p>Break</p> --}}
                     {{ view('components.post') }}
                     {{ view('components.post') }}
                 </main>

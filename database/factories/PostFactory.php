@@ -23,9 +23,9 @@ class PostFactory extends Factory
     {
         return [
             //
-            'description' => $this -> faker -> optional( $weight = 0.8) -> paragraph(4),
-            'image_path' => $this -> faker - file(asset('img'), ),
-            'user_id' => $this -> faker -> randomNumber(2, false),
+            'description' => $this -> faker -> optional( $weight = 0.7) -> paragraph(),
+            'image_path' => $this -> faker -> file(public_path('img\screens'), public_path('img'), false),
+            'user_id' => $this -> faker -> randomNumber(1, false) + 1,
             'likes' => $this -> faker -> randomNumber(3, false),
         ];
     }

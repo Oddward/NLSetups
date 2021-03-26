@@ -22,5 +22,5 @@ Route::get('/home', function () {
 Route::get('/sample-post', function () {
     return view('components.post');
 });
-Route::resource('posts', 'PostController');
+Route::resource('/posts', 'PostController');
 

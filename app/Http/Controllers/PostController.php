@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +22,9 @@ class PostController extends Controller
     {
         //
         $posts = Post::get();
-        return view('posts.index');
+        $users = User::all();
+
+        return view('posts.index', compact('posts', 'users'));
     }
 
     /**
@@ -68,8 +76,8 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
-        $post = Post::findOrFail($id);
-        return view('posts.show', compact('posts'));
+        $post = Post::findOrFail($post->id);
+        return view('posts.show', compact('post'));
     }
 
     /**

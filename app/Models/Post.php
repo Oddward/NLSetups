@@ -10,6 +10,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
     	'description',
     	'image_path',
     	'user_id',
@@ -27,12 +28,20 @@ class Post extends Model
      * 
 	 * One role may have one user or many users
      */
-    public function users() {
-    	return $this->belongsTo('App/User');
+    public function user() {
+    	return $this->belongsTo(User::class);
     }
 
     public function tags() {
     	return $this->belongsToMany('App/Tag');
+    }
+
+    public function file() {
+        return $this->hasOne('App/File');
+    }
+
+    public function files() {
+        return $this->hasMany('App/File');
     }
 
     // Get all comments, if available
