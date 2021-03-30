@@ -28,6 +28,34 @@ class PostController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function new()
+    {
+        //
+        $posts = Post::get();
+        $users = User::all();
+
+        return view('posts.index', compact('posts', 'users'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function popular()
+    {
+        //
+        $posts = Post::get();
+        $users = User::all();
+
+        return view('posts.index', compact('posts', 'users'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

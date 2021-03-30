@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>@yield('title')</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
             }
         </style>
     </head>
-    <body class="antialiased h-full">
+    <body class="antialiased h-full" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
         <div style="" class="h-full">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -39,28 +39,10 @@
 
             @include('includes.navbar')
             
-            <section>
-
-                <div class="region-isolated" style="display: flex; justify-content: space-between;">
-                    <div>
-                        <button class="label-isolated">new</button>
-                        <button class="label-isolated">popular</button>
-                    </div>
-                    <input class="searchbox" type="text" placeholder="Search">
-                </div>
-
-                <main style="
-                        padding: 2rem;
-                        display: flexbox;
-                        justify-content: center;
-                        width: 100%;">
-                    @yield('content')
-                    {{-- <p>Break</p> --}}
-                    {{ view('components.post') }}
-                    {{ view('components.post') }}
-                </main>
-
-            </section>
+            <main style="
+                    padding: 2rem;">
+                @yield('content')
+            </main>
 
         </div>
         @include('includes.footer')

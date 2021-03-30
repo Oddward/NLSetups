@@ -1,5 +1,8 @@
 
 /* BASE */
+body {
+	color: #222;
+}
 a {
 	text-decoration: none;
 	color: unset;
@@ -57,9 +60,12 @@ span { position: relative; }
 	padding-top: 1rem;
 	padding-bottom: 1rem;;
 }
+.inline-block {
+	display: inline-block;
+}
 
 /* DECORATION */
-header ul a::after {
+nav ul a::after {
 	transition: width 200ms ease;
 	content: '';
 	width: 0;
@@ -70,28 +76,23 @@ header ul a::after {
 	border-radius: 2px;
 	background: linear-gradient(0deg, rgb(0, 255, 191), rgb(0, 119, 255));
 }
-header ul a:hover::after {
+nav ul a:hover::after {
 	width: 100%;
 }
 .shadow {
 	box-shadow: 1px 0px 10px rgba(0, 0, 0, .3);
 }
+.muted-text {
+	color: rgb(65, 65, 65);
+	display: block;
+}
 .button-underline {
 	position: relative;
 }
-/* .button-underline::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	height: 2px;
-	width: 0;
-	background-color: linear-gradient('left-to-right', rgb(0, 255, 191), rgb(0, 119, 255));
-	transition: all 300ms ease-in-out;
+.stack {
+	display: inline-flex;
+	flex-direction: column;
 }
-.button-underline:hover::after {
-	width: 100%;
-} */
 
 /* COMPONENTS */
 .searchbox {
@@ -102,6 +103,11 @@ header ul a:hover::after {
 	padding-top: 0;
 	padding-bottom: 0;
 	max-height: 2.5rem;
+}
+.avatar {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 1.5rem;
 }
 
 /* EXTRA */

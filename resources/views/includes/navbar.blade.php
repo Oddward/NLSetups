@@ -1,4 +1,4 @@
-<header style="
+<nav style="
 			width: 100%;
 			height: auto;
 			display: flex;
@@ -24,4 +24,4 @@
 		<a class="label-isolated" href="">
 			<span>profile</span></a>
 	</ul>
-</header>
+</nav>

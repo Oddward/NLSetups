@@ -19,8 +19,16 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('layouts.app');
 });
+// supplemented custom methods for PostController
+Route::get('/posts?=new', 'PostController@new');
+Route::get('/posts?=popular', 'PostController@popular');
+// basic RESTful controllers
+Route::resource('/posts', 'PostController');
+Route::resource('/users', 'UserController');
+
+
+
+// TEMP - testing
 Route::get('/sample-post', function () {
     return view('components.post');
 });
-Route::resource('/posts', 'PostController');
-
