@@ -19,12 +19,18 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('layouts.app');
 });
-// supplemented custom methods for PostController
+
+/* supplemented custom methods for PostController */
 Route::get('/posts?=new', 'PostController@new');
 Route::get('/posts?=popular', 'PostController@popular');
-// basic RESTful controllers
 Route::resource('/posts', 'PostController');
-Route::resource('/users', 'UserController');
+
+Route::resource('/users', 'UserController')->names([
+    'show' => 'users.profile',
+]);
+
+/* Search autocomplete */
+Route::get('autocomplete', 'SearchController@autocomplete');
 
 
 

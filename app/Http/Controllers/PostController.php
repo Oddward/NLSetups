@@ -35,7 +35,7 @@ class PostController extends Controller
     public function new()
     {
         //
-        $posts = Post::get();
+        $posts = Post::orderBy('created_at')->get();
         $users = User::all();
 
         return view('posts.index', compact('posts', 'users'));
@@ -49,10 +49,24 @@ class PostController extends Controller
     public function popular()
     {
         //
-        $posts = Post::get();
+        $posts = Post::orderBy('likes')->get();
         $users = User::all();
 
         return view('posts.index', compact('posts', 'users'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function moreIndex()
+    {
+        //
+        $posts = Post::orderBy('likes')->count(3)->get();
+        // $users = User::all();
+
+        return view('posts.moreIndex', compact('posts'));
     }
 
     /**

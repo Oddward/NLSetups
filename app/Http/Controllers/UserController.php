@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth')->except('create', 'index', 'show');
+    // }
+    
     /**
      * Display a listing of the resource.
      *
@@ -46,6 +51,20 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
+    {
+        $user = User::findOrFail($user->id);
+        $posts = Post::all()->where('user_id', $user->id);
+
+        return view('users.profile', compact('user', 'posts'));
+    }
+
+    /**
+     * Display the user profile.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function profile(User $user)
     {
         //
     }

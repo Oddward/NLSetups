@@ -17,11 +17,17 @@
 			display: inline-flex;
 			justify-content: space-evenly;"
 			>
-		<a class="label-isolated" href="">
-			<span>about</span></a>
-		<a class="label-isolated" href="">
-			<span>submit</span></a>
-		<a class="label-isolated" href="">
-			<span>profile</span></a>
+		<a class="label-isolated relative muted-till-hover" href="">
+			<x-gmdi-info-outline class="medium-icon animated"/>
+			<span class="bottom-label animated muted-text">about</span>
+		</a>
+		<a class="label-isolated relative muted-till-hover" href="">
+			<x-gmdi-add-circle-outline class="medium-icon animated"/>
+			<span class="bottom-label animated muted-text">submit</span>
+		</a>
+		<a class="label-isolated relative muted-till-hover" href="">
+			<x-gmdi-account-circle class="medium-icon animated"/>
+			<span class="bottom-label animated muted-text">profile</span>
+		</a>
 	</ul>
 </nav>

@@ -4,7 +4,9 @@
 			color: #eee;
 			margin-top: auto;
 			display: inline-flex;
-			justify-content: space-evenly;">
+			justify-content: space-evenly;
+			position: absolute;
+			bottom: 0;">
 	<div class="label-isolated" style="display: inline; font-size: .8rem;">
 		<p >
 			Trademarks & logos features belong to their respective owners.
