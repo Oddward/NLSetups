@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Post extends Migration
+class CreatePostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,6 @@ class Post extends Migration
             $table->string('description');
             $table->string('image_path');
             $table->integer('user_id');
-            $table->integer('likes');
             // $table->text('tags');
             $table->timestamps();
         });

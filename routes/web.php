@@ -20,6 +20,9 @@ Route::get('/home', function () {
     return view('layouts.app');
 });
 
+/* Saving posts*/
+Route::post('/posts/{post}/saves', 'SaveController@store')->name('posts.saves');
+
 /* supplemented custom methods for PostController */
 Route::get('/posts?=new', 'PostController@new');
 Route::get('/posts?=popular', 'PostController@popular');

@@ -14,7 +14,6 @@ class Post extends Model
     	'description',
     	'image_path',
     	'user_id',
-    	'likes',
     	// 'tags',
     ];
 
@@ -32,17 +31,25 @@ class Post extends Model
     	return $this->belongsTo(User::class);
     }
 
-    public function tags() {
-    	return $this->belongsToMany('App/Tag');
+    // public function tags() {
+    // 	return $this->belongsToMany('App/Tag');
+    // }
+
+    public function saves() {
+    	return $this->hasManyThrough(User::class, Save::class, 'user_id', 'id');
     }
 
-    public function file() {
-        return $this->hasOne('App/File');
+    public function savedBy() {
+        return $this->saves->contains('user_id', $user->id);
     }
 
-    public function files() {
-        return $this->hasMany('App/File');
-    }
+    // public function file() {
+    //     return $this->hasOne('App/File');
+    // }
+
+    // public function files() {
+    //     return $this->hasMany('App/File');
+    // }
 
     // Get all comments, if available
     // public function comments() {

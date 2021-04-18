@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Feed | NLSetups
+    Feed 
 @endsection
 @section('content')
     <div class="region-isolated" style="display: flex; justify-content: space-between;">
@@ -30,9 +30,13 @@
                         by <a href="/users/{{ $post->user->id }}" class="username">{{ $post->user->name }}</a>
                     </p>
                     {{-- bookmark icon --}}
-                    <button class="muted-till-hover">
-                        <x-gmdi-bookmark-border class="small-icon"/>
-                    </button>
+                    <form action="" method="post">
+                        <button type="submit" class="muted-till-hover">
+                            @csrf
+                            <x-gmdi-bookmark-border class="small-icon"/>
+                        </button>
+                    </form>
+                    
                 </div>
             </div>
         @endforeach

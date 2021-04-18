@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ $post->user->name }} - {{ $post->id }} | NLSetups
+    Post by {{ $post->user->name }} ● {{ $post->id }}
 @endsection
 @section('content')
     <div>
@@ -20,19 +20,27 @@
                     justify-content:center;">
                 <div style="display:inline-block;" class="shadow soft-outline">
                     <header style="padding:1rem; display:flex; justify-content:space-between;">
-                        <div id="user-info" style="display:inline-flex; align-items:center;">
+                        <div id="user-info" class="center-the-stuff-h">
                             <button class="avatar-small round" style="background:#222;"></button>
                             <p style="display:inline-block; margin-right:auto; margin-left:.5rem;"
                                 class="stack">
-                                <a href="/profile/{{ $post->id }}">
+                                <a href="/users/{{ $post->user->id }}">
                                     <strong>{{ $post->user->name }}</strong>
                                 </a>
                                 <small class="muted-text">{{ $post->created_at }}</small>
                             </p>
                         </div>
-                        <button>
-                            <span></span>
-                        </button>
+                        <div id="post-stats" class="center-the-stuff-h">
+                            {{-- bookmark icon --}}
+                            <form action="{{ route('posts.saves', $post->id) }}" method="post">
+                                @csrf
+                                <button type="submit" class="muted-till-hover">
+                                    <x-gmdi-bookmark-border class="small-icon"/>
+                                </button>
+                            </form>
+                            {{-- *no need to show save counter, will add likes/votes --}}
+                            {{-- <span>{{ $post->saves->count() }}</span> --}}
+                        </div>
                     </header>
                     <div id="post-description" style="padding:1.5rem; width:30rem; min-width:12rem; max-width:100%;">
                         <p>{{ $post->description }}</p>
@@ -40,14 +48,14 @@
                 </div>
             </div>
             <div id="explore-more">
-                @if (DB::table('posts')->where('user_id', $post->user_id )->count() >= 1)
+                @if (DB::table('posts')->where('user_id', $post->user_id )->count() > 1)
                     <div id="more-from-user">
-                        <h3>More from {{ $post->user->name }}</h3>
+                        <h3 class="muted-text">More from {{ $post->user->name }}</h3>
                         @yield('more-from-user')
                     </div>
                 @else
                     <div id="more-from-user">
-                        <h3>No more posts from {{ $post->user->name }}</h3>
+                        <h3 class="muted-text">No more posts from {{ $post->user->name }}</h3>
                     </div>
                 @endif
                 
