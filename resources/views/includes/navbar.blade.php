@@ -9,7 +9,8 @@
 			padding-top: 1rem;
 			padding-bottom: 1rem;">
 	<a href="" >
-		<img src="{{ asset('img\WordmarkWithLogoHorizontal.png') }}" alt="site logo" height="30px">
+		{{-- <img src="{{ asset('img\WordmarkWithLogoHorizontal.png') }}" alt="site logo" height="30px"> --}}
+        <h1>NLSetups</h1>
 	</a>
 	<ul 
 		style="
